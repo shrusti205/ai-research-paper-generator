@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Results</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+🚀 Research Paper Analysis
+</h1>
+
+<div class="card">
+
+<h2>
+📄 Summary
+</h2>
+
+<div class="summary-box">
+
+{{ summary }}
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>
+🧠 Flashcards
+</h2>
+
+<div class="flashcard-container">
+
+{% for card in flashcards %}
+
+<div class="flashcard"
+onclick="flipCard(this)">
+
+<div class="front">
+
+{{ card.question }}
+
+</div>
+
+<div class="back">
+
+{{ card.answer }}
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+<br>
+
+<a href="/">
+⬅ Upload Another PDF
+</a>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>
+AI Research Paper Generator
+</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+📚 AI Research Paper Generator
+</h1>
+
+<p>
+Upload a research paper PDF and get AI insights.
+</p>
+
+<form method="POST"
+enctype="multipart/form-data">
+
+<input type="file"
+name="pdf"
+accept=".pdf"
+required>
+
+<button type="submit">
+🚀 Analyze Paper
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>
