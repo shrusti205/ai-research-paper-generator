@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 flask
 python-dotenv
 PyPDF2
 google-generativeai
 gunicorn
+=======
+flask
+python-dotenv
+PyPDF2
+google-generativeai
+gunicorn
+>>>>>>> 2197e24b6292875a30d70acec855e15aa46fc551
