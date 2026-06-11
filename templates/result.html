@@ -1,80 +1,63 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
-<title>Results</title>
-
-<link rel="stylesheet"
-href="{{ url_for('static', filename='style.css') }}">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
 
-<div class="container">
+  <div class="container">
+    <header>
+      <h1>Document <span>Analysis</span></h1>
+      <div class="subtitle">Key insights and flashcards</div>
+    </header>
 
-<h1>
-🚀 Research Paper Analysis
-</h1>
-
-<div class="card">
-
-<h2>
-📄 Summary
-</h2>
-
-<div class="summary-box">
-
+    <!-- Editorial Summary Panel -->
+    <section class="panel">
+      <h2 class="section-title">Executive Summary</h2>
+      <div class="summary-box">
 {{ summary }}
+      </div>
+    </section>
 
-</div>
+    <!-- Flashcards Panel -->
+    <section class="panel">
+      <h2 class="section-title">Core Flashcards</h2>
+      
+      <div class="flashcard-grid">
+        {% for card in flashcards %}
+        <div class="flashcard-scene" onclick="flipCard(this)">
+          <div class="flashcard-inner">
+            <!-- Front of Card (Question) -->
+            <div class="card-face front">
+              <div class="card-label">Question</div>
+              <p class="card-text">{{ card.question }}</p>
+            </div>
+            <!-- Back of Card (Answer) -->
+            <div class="card-face back">
+              <div class="card-label">Answer</div>
+              <p class="card-text">{{ card.answer }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
 
-</div>
+    <!-- Back Button -->
+    <div class="back-link-container">
+      <a href="/" class="back-link">
+        <svg viewBox="0 0 24 24">
+          <line x1="19" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="12 19 5 12 12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Analyze Another Document
+      </a>
+    </div>
+  </div>
 
-<div class="card">
-
-<h2>
-🧠 Flashcards
-</h2>
-
-<div class="flashcard-container">
-
-{% for card in flashcards %}
-
-<div class="flashcard"
-onclick="flipCard(this)">
-
-<div class="front">
-
-{{ card.question }}
-
-</div>
-
-<div class="back">
-
-{{ card.answer }}
-
-</div>
-
-</div>
-
-{% endfor %}
-
-</div>
-
-</div>
-
-<br>
-
-<a href="/">
-⬅ Upload Another PDF
-</a>
-
-</div>
-
-<script src="{{ url_for('static', filename='script.js') }}"></script>
-
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
-
 </html>
