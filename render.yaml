@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: ai-research-paper-generator
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false # The deployment will prompt you to enter your API key in the Render UI
