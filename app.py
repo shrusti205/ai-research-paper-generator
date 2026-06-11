@@ -109,11 +109,11 @@ def home():
 
     if request.method == "POST":
 
-        pdf = request.files["pdf"]
-
-        text = extract_text(pdf)
-
         try:
+
+            pdf = request.files["pdf"]
+
+            text = extract_text(pdf)
 
             result = analyze_paper(text)
 
